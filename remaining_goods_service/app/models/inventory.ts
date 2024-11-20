@@ -9,7 +9,7 @@ export default class Inventory extends BaseModel {
   declare PLU: string
 
   @column()
-  declare store_id: number
+  declare shop_id: number
 
   @column()
   declare quantity_on_shelf: number

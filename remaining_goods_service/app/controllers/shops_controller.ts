@@ -7,7 +7,10 @@ export default class ShopsController {
   /**
    * Display a list of resource
    */
-  async index({}: HttpContext) {}
+  async index({ response }: HttpContext) {
+    const shops = await Shop.all()
+    return response.ok({ data: shops })
+  }
 
   /**
    * Handle form submission for the create action

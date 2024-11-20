@@ -11,7 +11,10 @@ export default class ProductsController {
   /**
    * Display a list of resource
    */
-  async index({}: HttpContext) {}
+  async index({ response }: HttpContext) {
+    const products = await Product.all()
+    return response.ok({ data: products })
+  }
 
   /**
    * Handle form submission for the create action
@@ -38,30 +41,31 @@ export default class ProductsController {
   /**
    * Show individual record
    */
-  async show({ params, response }: HttpContext) {
-    const { PLU } = params
-    if (!PLU) {
-      throw new Error('PLU is required')
+  async show({ request, response }: HttpContext) {
+    const filters = request.qs()
+
+    const productQuery = Product.query()
+
+    const productFilterMap: Record<string, string | [string, string]> = {
+      PLU: 'plu',
+      NAME: 'name',
     }
-    const product = await Product.findBy('plu', PLU)
-    if (!product) {
-      throw new NotFoundException('Product not found')
+    for (const [key, value] of Object.entries(filters)) {
+      if (value && key in productFilterMap) {
+        const filter = productFilterMap[key]
+        if (Array.isArray(filter)) {
+          productQuery.where(filter[0], filter[1], value)
+        } else {
+          productQuery.where(filter, value)
+        }
+      }
     }
-    return response.ok({ data: product })
+
+    const products = await productQuery
+
+    return response.ok({ data: products })
   }
 
-  async showByName({ request, response }: HttpContext) {
-    const name = decodeURIComponent(request.param('name'))
-    const payload = await NameQueryValidator.validate({ name })
-    if (!payload.name) {
-      throw new Error('name is required')
-    }
-    const product = await Product.findBy('name', payload.name)
-    if (!product) {
-      throw new NotFoundException('Product not found')
-    }
-    return response.ok({ data: product })
-  }
   /**
    * Edit individual record
    */
