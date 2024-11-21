@@ -18,15 +18,15 @@ router.get('/', async () => {
 })
 
 // products routes
-router.post('/products', [ProductsController, 'store'])
-router.get('/products', [ProductsController, 'index'])
-router.get('/products/show', [ProductsController, 'show'])
+router.post('/products', [ProductsController, 'store']) // create product
+router.get('/products', [ProductsController, 'index']) // get all products
+router.get('/products/show', [ProductsController, 'show']) // get product by PLU or name in query params
 
 // shops routes
-router.post('/shops', [ShopsController, 'store'])
-router.get('/shops', [ShopsController, 'index'])
+router.post('/shops', [ShopsController, 'store']) // create shop
+router.get('/shops', [ShopsController, 'index']) // get all shops
 
 // inventories routes
-router.post('/inventories', [InventoriesController, 'store'])
-router.get('/inventories', [InventoriesController, 'index'])
-router.put('/inventories', [InventoriesController, 'edit'])
+router.post('/inventories', [InventoriesController, 'store']) // create inventory JSON payload
+router.get('/inventories', [InventoriesController, 'index']) // get inventories by filters in query params
+router.put('/inventories', [InventoriesController, 'edit']) // update inventory JSON payload
