@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-history": "node ./products_history_service/server.js",
+    "install":"npm i --prefix ./products_history_service && npm i --prefix ./remaining_goods_service",
+    "start-history": "npm run migrate --prefix ./products_history_service  && node ./products_history_service/server.js",
     "start-products": "npm run dev --prefix ./remaining_goods_service",
     "build": "npm run build --prefix ./remaining_goods_service"
   },

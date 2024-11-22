@@ -3,6 +3,10 @@ import { createInventoryValidator, updateInventoryValidator } from '#validators/
 import Inventory from '#models/inventory'
 import Product from '#models/product'
 import { AlreadyExistsException, NotFoundException } from '#exceptions/errors_exceptions'
+import axios from 'axios'
+import 'dotenv/config'
+
+const HISTORY_URL = process.env.HISTORY_URL || 'http://localhost:4000'
 export default class InventoriesController {
   /**
    * Display a list of resource
@@ -62,6 +66,18 @@ export default class InventoriesController {
       quantity_in_order: payload.quantity_in_order,
       shop_id: payload.shop_id,
     })
+
+    try {
+      axios.post(`${HISTORY_URL}/api/create-inventory`, {
+        PLU: payload.PLU,
+        shop_id: payload.shop_id,
+        quantity_on_shelf: payload.quantity_on_shelf,
+        quantity_in_order: payload.quantity_in_order,
+      })
+    } catch (error) {
+      console.error('Failed to send event to history service:', error.message)
+    }
+
     return response.created({ message: 'invetory created successufy', data: inventory })
   }
 
@@ -89,6 +105,17 @@ export default class InventoriesController {
       quantity_on_shelf: payload.quantity_on_shelf ?? existingInventory.quantity_on_shelf,
       quantity_in_order: payload.quantity_in_order ?? existingInventory.quantity_in_order,
     })
+
+    try {
+      axios.post(`${HISTORY_URL}/api/update-inventory`, {
+        PLU: payload.PLU,
+        shop_id: payload.shop_id,
+        quantity_on_shelf: payload.quantity_on_shelf ?? existingInventory.quantity_on_shelf,
+        quantity_in_order: payload.quantity_in_order ?? existingInventory.quantity_in_order,
+      })
+    } catch (error) {
+      console.error('Failed to send event to history service:', error.message)
+    }
 
     await existingInventory.save()
 
