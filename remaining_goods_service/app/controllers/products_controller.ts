@@ -2,7 +2,10 @@ import type { HttpContext } from '@adonisjs/core/http'
 import { AlreadyExistsException } from '#exceptions/errors_exceptions'
 import Product from '#models/product'
 import { createProductValidator } from '#validators/product'
+import axios from 'axios'
+import 'dotenv/config'
 
+const HISTORY_URL = process.env.HISTORY_URL || 'http://localhost:4000'
 export default class ProductsController {
   /**
    * Display a list of resource
@@ -26,8 +29,12 @@ export default class ProductsController {
         `Product with name ${payload.name} or PLU ${payload.PLU} already exists`
       )
     }
+    const product = await Product.create(payload)
     try {
-      const product = await Product.create(payload)
+      axios.post(`${HISTORY_URL}/api/create-product`, {
+        PLU: payload.PLU,
+        name: payload.name,
+      })
       return response.created({ message: 'Product created successfully', data: product })
     } catch (error) {
       throw new Error('Product creation error')
