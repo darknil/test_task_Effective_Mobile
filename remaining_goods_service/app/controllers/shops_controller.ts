@@ -1,5 +1,5 @@
 import type { HttpContext } from '@adonisjs/core/http'
-import { createShopValidator, updateShopValidator } from '#validators/shop'
+import { createShopValidator } from '#validators/shop'
 import Shop from '#models/shop'
 import { AlreadyExistsException } from '#exceptions/errors_exceptions'
 
@@ -34,12 +34,12 @@ export default class ShopsController {
   /**
    * Show individual record
    */
-  async show({ params }: HttpContext) {}
+  async show() {}
 
   /**
    * Edit individual record
    */
-  async edit({ params }: HttpContext) {}
+  async edit() {}
 
   /**
    * Handle form submission for the edit action
@@ -49,5 +49,5 @@ export default class ShopsController {
   /**
    * Delete record
    */
-  async destroy({ params }: HttpContext) {}
+  async destroy() {}
 }

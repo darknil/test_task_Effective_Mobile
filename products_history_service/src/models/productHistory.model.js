@@ -15,7 +15,7 @@ const ProductActionHistory = sequelize.define(
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     shop_id: {
       type: DataTypes.INTEGER,
@@ -24,6 +24,14 @@ const ProductActionHistory = sequelize.define(
     action: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    quantity_on_shelf: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    quantity_in_order: {
+      type: DataTypes.INTEGER,
+      allowNull: true
     },
     date: {
       type: DataTypes.DATE,

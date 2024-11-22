@@ -1,4 +1,5 @@
 import { ActionService } from '../services/action.service.js'
+import { Op } from 'sequelize'
 export class ActionController {
   constructor() {
     this.ActionService = new ActionService()
@@ -44,15 +45,17 @@ export class ActionController {
 
       const action = await this.ActionService.create({
         plu: PLU,
-        name: `Inventory created for ${PLU}`,
         shop_id: shop_id,
-        action: 'create_inventory',
+        action: `create_inventory`,
+        quantity_on_shelf: quantity_on_shelf,
+        quantity_in_order: quantity_in_order,
         date: new Date()
       })
 
-      return res
-        .status(201)
-        .json({ message: 'Inventory created successfully', action })
+      return res.status(201).json({
+        message: 'The inventory creation record was successfully added.',
+        action
+      })
     } catch (error) {
       console.error(
         'Error to write record about create inventory:',
@@ -65,25 +68,32 @@ export class ActionController {
   }
   updateInventory = async (req, res) => {
     try {
-      const { id } = req.params
-      const { quantity_on_shelf, quantity_in_order } = req.body
-
+      const { PLU, shop_id, quantity_on_shelf, quantity_in_order } = req.body
+      if (!shop_id || !PLU) {
+        return res.status(400).json({
+          error: 'shop id and PLU is required'
+        })
+      }
       if (!quantity_on_shelf && !quantity_in_order) {
         return res.status(400).json({
           error:
-            'At least one field (quantity_on_shelf or quantity_in_order) is required'
+            'At least one field quantity_on_shelf or quantity_in_order is required'
         })
       }
 
-      const updatedAction = await this.ActionService.update(id, {
+      const action = await this.ActionService.create({
+        plu: PLU,
+        shop_id: shop_id,
+        action: `update_inventory`,
         quantity_on_shelf: quantity_on_shelf,
         quantity_in_order: quantity_in_order,
-        action: 'update_inventory'
+        date: new Date()
       })
 
-      return res
-        .status(200)
-        .json({ message: 'Inventory updated successfully', updatedAction })
+      return res.status(200).json({
+        message: 'The inventory update record was successfully added.',
+        action
+      })
     } catch (error) {
       console.error(
         'Error to write record about update inventory:',
@@ -96,15 +106,20 @@ export class ActionController {
   }
   getHistoryByShopId = async (req, res) => {
     try {
-      const { shop_id } = req.query
-
+      const { shop_id } = req.params
+      console.log('shop_id: ', shop_id)
+      const { limit = 10, offset = 0 } = req.query
       if (!shop_id) {
         return res.status(400).json({ error: 'shop_id is required' })
       }
 
-      const history = await this.ActionService.read({ shop_id })
+      const history = await this.ActionService.read(
+        { shop_id },
+        parseInt(limit, 10),
+        parseInt(offset, 10)
+      )
 
-      if (!history.length) {
+      if (!history.rows.length) {
         return res
           .status(404)
           .json({ message: 'No history found for the given shop_id.' })
@@ -121,12 +136,12 @@ export class ActionController {
       const { plu } = req.query
 
       if (!plu) {
-        return res.status(400).json({ error: 'PLU is required' })
+        return res.status(400).json({ error: 'plu is required' })
       }
 
       const history = await this.ActionService.read({ plu })
 
-      if (!history.length) {
+      if (!history.rows.length) {
         return res
           .status(404)
           .json({ message: 'No history found for the given PLU.' })
@@ -150,16 +165,16 @@ export class ActionController {
 
       const filters = {}
       if (start_date && end_date) {
-        filters.date = { $between: [new Date(start_date), new Date(end_date)] }
+        filters.date = {
+          [Op.between]: [new Date(start_date), new Date(end_date)]
+        }
       } else if (start_date) {
-        filters.date = { $gte: new Date(start_date) }
+        filters.date = { [Op.gte]: new Date(start_date) }
       } else if (end_date) {
-        filters.date = { $lte: new Date(end_date) }
+        filters.date = { [Op.lte]: new Date(end_date) }
       }
-
       const history = await this.ActionService.read(filters)
-
-      if (!history.length) {
+      if (!history.rows.length) {
         return res
           .status(404)
           .json({ message: 'No history found for the given date range.' })
@@ -178,10 +193,21 @@ export class ActionController {
       if (!action) {
         return res.status(400).json({ error: 'Action is required' })
       }
+      const allowedActions = [
+        'create_product',
+        'create_inventory',
+        'update_inventory'
+      ]
 
+      if (!allowedActions.includes(action)) {
+        return res.status(400).json({
+          error: `Invalid action: '${action}'.`,
+          allowedActions
+        })
+      }
       const history = await this.ActionService.read({ action })
 
-      if (!history.length) {
+      if (!history.rows.length) {
         return res
           .status(404)
           .json({ message: 'No history found for the given action.' })
@@ -201,7 +227,7 @@ export class ActionController {
 
       const offset = (page - 1) * limit
 
-      const { count, rows } = await this.ActionService.getHistoryWithPagination(
+      const { count, rows } = await this.ActionService.getWithPagination(
         {},
         limit,
         offset
@@ -218,6 +244,52 @@ export class ActionController {
       return res
         .status(500)
         .json({ error: 'Failed to fetch paginated history' })
+    }
+  }
+  getHistory = async (req, res) => {
+    const exampleQuery = `/history?shop_id=1&plu=12345&start_date=2024-11-01&end_date=2024-11-21&action=create_product&page=1&limit=10`
+    try {
+      const {
+        shop_id,
+        plu,
+        start_date,
+        end_date,
+        action,
+        page = 1,
+        limit = 10
+      } = req.query
+
+      if (!shop_id && !plu && !start_date && !end_date && !action) {
+        return res.status(400).json({
+          error:
+            'At least one filter (shop_id, plu, start_date, end_date, action) is required',
+          example: exampleQuery
+        })
+      }
+
+      const { currentPage, totalPages, totalCount, data } =
+        await this.ActionService.getHistory({
+          shop_id,
+          plu,
+          start_date,
+          end_date,
+          action,
+          page,
+          limit
+        })
+
+      return res.status(200).json({
+        currentPage,
+        totalPages,
+        totalCount,
+        data
+      })
+    } catch (error) {
+      console.error('Error fetching action history:', error.message)
+      return res.status(500).json({
+        error: 'Failed to fetch action history',
+        example: exampleQuery
+      })
     }
   }
 }

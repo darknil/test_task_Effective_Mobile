@@ -68,7 +68,7 @@ export default class InventoriesController {
   /**
    * Show individual record
    */
-  async show({ params }: HttpContext) {}
+  async show() {}
 
   /**
    * Edit individual record
@@ -104,5 +104,5 @@ export default class InventoriesController {
   /**
    * Delete record
    */
-  async destroy({ params }: HttpContext) {}
+  async destroy() {}
 }

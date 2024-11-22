@@ -1,11 +1,7 @@
 import type { HttpContext } from '@adonisjs/core/http'
-import { AlreadyExistsException, NotFoundException } from '#exceptions/errors_exceptions'
+import { AlreadyExistsException } from '#exceptions/errors_exceptions'
 import Product from '#models/product'
-import {
-  createProductValidator,
-  updateProductValidator,
-  NameQueryValidator,
-} from '#validators/product'
+import { createProductValidator } from '#validators/product'
 
 export default class ProductsController {
   /**
@@ -69,7 +65,7 @@ export default class ProductsController {
   /**
    * Edit individual record
    */
-  async edit({ params }: HttpContext) {}
+  async edit() {}
 
   /**
    * Handle form submission for the edit action
@@ -79,5 +75,5 @@ export default class ProductsController {
   /**
    * Delete record
    */
-  async destroy({ params }: HttpContext) {}
+  async destroy() {}
 }

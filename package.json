@@ -1,0 +1,14 @@
+{
+  "name": "test_task_effective_mobile",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-history": "node ./products_history_service/server.js",
+    "start-products": "npm run dev --prefix ./remaining_goods_service",
+    "build": "npm run build --prefix ./remaining_goods_service"
+  },
+  "author": "darknil",
+  "license": "ISC",
+  "description": ""
+}
