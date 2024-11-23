@@ -1,0 +1,1718 @@
+{
+	"info": {
+		"_postman_id": "d2549b76-e812-4f06-819e-57b7a83cc033",
+		"name": "Effective_Mobile",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" alt=\"\" height=\"1530\" width=\"2162\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29443735"
+	},
+	"item": [
+		{
+			"name": "shop",
+			"item": [
+				{
+					"name": "add shop",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3333/shops"
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"test\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3333/shops"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "161"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Nov 2024 03:57:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Shop created successfully\",\n    \"data\": {\n        \"name\": \"test\",\n        \"createdAt\": \"2024-11-20T03:57:00.034+00:00\",\n        \"updatedAt\": \"2024-11-20T03:57:00.034+00:00\",\n        \"shopId\": 2\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "get all shops",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3333/shops"
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3333/shops"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "127"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Nov 2024 03:47:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"shopId\": 1,\n            \"name\": \"sasaas\",\n            \"createdAt\": \"2024-11-20T03:47:52.420+00:00\",\n            \"updatedAt\": \"2024-11-20T03:47:52.420+00:00\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "create product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"PLU\": \"325125\",\r\n  \"name\": \"test2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3333/products"
+					},
+					"response": [
+						{
+							"name": "create product",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"PLU\": \"325125\",\r\n  \"name\": \"test2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3333/products"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "176"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Nov 2024 03:56:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Product created successfully\",\n    \"data\": {\n        \"plu\": \"325125\",\n        \"name\": \"test2\",\n        \"createdAt\": \"2024-11-20T03:56:31.972+00:00\",\n        \"updatedAt\": \"2024-11-20T03:56:31.972+00:00\",\n        \"id\": 2\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "get product by PLU",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/products/show?PLU=325125",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"products",
+								"show"
+							],
+							"query": [
+								{
+									"key": "PLU",
+									"value": "325125"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get product by PLU",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3333/products/show?PLU=325125",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3333",
+									"path": [
+										"products",
+										"show"
+									],
+									"query": [
+										{
+											"key": "PLU",
+											"value": "325125"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "137"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Nov 2024 04:09:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 2,\n            \"plu\": \"325125\",\n            \"name\": \"test2\",\n            \"createdAt\": \"2024-11-20T03:56:31.972+00:00\",\n            \"updatedAt\": \"2024-11-20T03:56:31.972+00:00\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get product by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/products/show?NAME=test2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"products",
+								"show"
+							],
+							"query": [
+								{
+									"key": "NAME",
+									"value": "test2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get product by name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3333/products/show?NAME=test2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3333",
+									"path": [
+										"products",
+										"show"
+									],
+									"query": [
+										{
+											"key": "NAME",
+											"value": "test2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "137"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Nov 2024 04:10:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 2,\n            \"plu\": \"325125\",\n            \"name\": \"test2\",\n            \"createdAt\": \"2024-11-20T03:56:31.972+00:00\",\n            \"updatedAt\": \"2024-11-20T03:56:31.972+00:00\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get all products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3333/products"
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3333/products"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "264"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Nov 2024 04:01:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 2,\n            \"plu\": \"325125\",\n            \"name\": \"test2\",\n            \"createdAt\": \"2024-11-20T03:56:31.972+00:00\",\n            \"updatedAt\": \"2024-11-20T03:56:31.972+00:00\"\n        },\n        {\n            \"id\": 1,\n            \"plu\": \"325124\",\n            \"name\": \"test1\",\n            \"createdAt\": \"2024-11-20T03:54:22.757+00:00\",\n            \"updatedAt\": \"2024-11-20T03:54:22.757+00:00\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Inventories",
+			"item": [
+				{
+					"name": "add inventory item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"PLU\":\"325125\",\r\n    \"shop_id\":\"2\",\r\n    \"quantity_on_shelf\":15,\r\n    \"quantity_in_order\":10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3333/inventories"
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"PLU\":\"325125\",\r\n    \"shop_id\":\"2\",\r\n    \"quantity_on_shelf\":15,\r\n    \"quantity_in_order\":10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3333/inventories"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "213"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Nov 2024 03:57:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"invetory created successufy\",\n    \"data\": {\n        \"plu\": \"325125\",\n        \"quantityOnShelf\": 15,\n        \"quantityInOrder\": 10,\n        \"shopId\": 2,\n        \"createdAt\": \"2024-11-20T03:57:12.040+00:00\",\n        \"updatedAt\": \"2024-11-20T03:57:12.040+00:00\",\n        \"id\": 3\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "get without filter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3333/inventories"
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3333/inventories"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "503"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Nov 2024 04:01:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"plu\": \"325124\",\n            \"shopId\": 1,\n            \"quantityOnShelf\": 10,\n            \"quantityInOrder\": 5,\n            \"createdAt\": \"2024-11-20T03:54:26.036+00:00\",\n            \"updatedAt\": \"2024-11-20T03:54:26.036+00:00\"\n        },\n        {\n            \"id\": 2,\n            \"plu\": \"325125\",\n            \"shopId\": 1,\n            \"quantityOnShelf\": 10,\n            \"quantityInOrder\": 5,\n            \"createdAt\": \"2024-11-20T03:56:41.910+00:00\",\n            \"updatedAt\": \"2024-11-20T03:56:41.910+00:00\"\n        },\n        {\n            \"id\": 3,\n            \"plu\": \"325125\",\n            \"shopId\": 2,\n            \"quantityOnShelf\": 15,\n            \"quantityInOrder\": 10,\n            \"createdAt\": \"2024-11-20T03:57:12.040+00:00\",\n            \"updatedAt\": \"2024-11-20T03:57:12.040+00:00\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get inventory by shop filter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/inventories?SHOP_ID=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"inventories"
+							],
+							"query": [
+								{
+									"key": "SHOP_ID",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3333/inventories?SHOP_ID=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3333",
+									"path": [
+										"inventories"
+									],
+									"query": [
+										{
+											"key": "SHOP_ID",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "339"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Nov 2024 20:11:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"plu\": \"325124\",\n            \"shopId\": 1,\n            \"quantityOnShelf\": 10,\n            \"quantityInOrder\": 5,\n            \"createdAt\": \"2024-11-20T03:54:26.036+00:00\",\n            \"updatedAt\": \"2024-11-20T03:54:26.036+00:00\"\n        },\n        {\n            \"id\": 2,\n            \"plu\": \"325125\",\n            \"shopId\": 1,\n            \"quantityOnShelf\": 50,\n            \"quantityInOrder\": 20,\n            \"createdAt\": \"2024-11-20T03:56:41.910+00:00\",\n            \"updatedAt\": \"2024-11-20T20:11:16.389+00:00\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get inventory by plu filter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/inventories?PLU=325125",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"inventories"
+							],
+							"query": [
+								{
+									"key": "PLU",
+									"value": "325125"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3333/inventories?PLU=325125",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3333",
+									"path": [
+										"inventories"
+									],
+									"query": [
+										{
+											"key": "PLU",
+											"value": "325125"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "339"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Nov 2024 03:58:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 2,\n            \"plu\": \"325125\",\n            \"shopId\": 1,\n            \"quantityOnShelf\": 10,\n            \"quantityInOrder\": 5,\n            \"createdAt\": \"2024-11-20T03:56:41.910+00:00\",\n            \"updatedAt\": \"2024-11-20T03:56:41.910+00:00\"\n        },\n        {\n            \"id\": 3,\n            \"plu\": \"325125\",\n            \"shopId\": 2,\n            \"quantityOnShelf\": 15,\n            \"quantityInOrder\": 10,\n            \"createdAt\": \"2024-11-20T03:57:12.040+00:00\",\n            \"updatedAt\": \"2024-11-20T03:57:12.040+00:00\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get by shop and plu",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/inventories?SHOP_ID=1&PLU=325125",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"inventories"
+							],
+							"query": [
+								{
+									"key": "SHOP_ID",
+									"value": "1"
+								},
+								{
+									"key": "PLU",
+									"value": "325125"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3333/inventories?SHOP_ID=1&PLU=325125",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3333",
+									"path": [
+										"inventories"
+									],
+									"query": [
+										{
+											"key": "SHOP_ID",
+											"value": "1"
+										},
+										{
+											"key": "PLU",
+											"value": "325125"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "174"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Nov 2024 04:02:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 2,\n            \"plu\": \"325125\",\n            \"shopId\": 1,\n            \"quantityOnShelf\": 10,\n            \"quantityInOrder\": 5,\n            \"createdAt\": \"2024-11-20T03:56:41.910+00:00\",\n            \"updatedAt\": \"2024-11-20T03:56:41.910+00:00\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "update inventory item",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"PLU\": \"325125\",\r\n  \"shop_id\": 1,\r\n  \"quantity_on_shelf\": 50,\r\n  \"quantity_in_order\": 20\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3333/inventories"
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"PLU\": \"325125\",\r\n  \"shop_id\": 1,\r\n  \"quantity_on_shelf\": 50,\r\n  \"quantity_in_order\": 20\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3333/inventories"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "193"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Nov 2024 20:11:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"updated\",\n    \"data\": {\n        \"id\": 2,\n        \"plu\": \"325125\",\n        \"shopId\": 1,\n        \"quantityOnShelf\": 50,\n        \"quantityInOrder\": 20,\n        \"createdAt\": \"2024-11-20T03:56:41.910+00:00\",\n        \"updatedAt\": \"2024-11-20T20:11:16.389+00:00\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "history",
+			"item": [
+				{
+					"name": "create product history",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:4000/api/create-product"
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"PLU\":325125,\r\n    \"name\":\"test2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4000/api/create-product"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "188"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bc-C1RFzlJ8Un0w9zpG7Jxq9p3ilfM\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Nov 2024 06:17:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The product creation record was successfully added.\",\n    \"action\": {\n        \"id\": 1,\n        \"plu\": \"325125\",\n        \"name\": \"test2\",\n        \"action\": \"create_product\",\n        \"date\": \"2024-11-21T06:17:52.498Z\",\n        \"shop_id\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "create inventory history",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"PLU\":325125,\r\n    \"shop_id\":1,\r\n    \"quantity_on_shelf\":10,\r\n    \"quantity_in_order\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4000/api/create-inventory"
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"PLU\":325125,\r\n    \"shop_id\":1,\r\n    \"quantity_on_shelf\":10,\r\n    \"quantity_in_order\":5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4000/api/create-inventory"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "189"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bd-aII9zXXIHdiVkO+8qhcK+TSeADo\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Nov 2024 22:15:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Inventory created successfully\",\n    \"action\": {\n        \"id\": 1,\n        \"plu\": \"325125\",\n        \"name\": \"Inventory created for 325125\",\n        \"shop_id\": 1,\n        \"action\": \"create_inventory\",\n        \"date\": \"2024-11-21T22:15:03.334Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "update-inventory",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"PLU\":325125,\r\n    \"shop_id\":1,\r\n    \"quantity_on_shelf\":15,\r\n    \"quantity_in_order\":10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4000/api/update-inventory"
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"PLU\":325125,\r\n    \"shop_id\":1,\r\n    \"quantity_on_shelf\":15,\r\n    \"quantity_in_order\":10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4000/api/update-inventory"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "230"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e6-28tstVKsRJwNqPnwQQr1ExR5EfU\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 02:59:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The inventory update record was successfully added.\",\n    \"action\": {\n        \"id\": 4,\n        \"plu\": \"325125\",\n        \"shop_id\": 1,\n        \"action\": \"update_inventory\",\n        \"quantity_on_shelf\": 15,\n        \"quantity_in_order\": 10,\n        \"date\": \"2024-11-22T02:59:42.355Z\",\n        \"name\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "history",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/history?shop_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"history"
+							],
+							"query": [
+								{
+									"key": "shop_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/history?shop_id=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"history"
+									],
+									"query": [
+										{
+											"key": "shop_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "679"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2a7-crglcZOEQLW26LuV0Ecf5vRL9cc\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 03:19:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"currentPage\": 1,\n    \"totalPages\": 1,\n    \"totalCount\": 4,\n    \"data\": [\n        {\n            \"id\": 6,\n            \"plu\": \"325125\",\n            \"name\": null,\n            \"shop_id\": 1,\n            \"action\": \"update_inventory\",\n            \"quantity_on_shelf\": 20,\n            \"quantity_in_order\": 15,\n            \"date\": \"2024-11-22T03:02:56.427Z\"\n        },\n        {\n            \"id\": 5,\n            \"plu\": \"325125\",\n            \"name\": null,\n            \"shop_id\": 1,\n            \"action\": \"update_inventory\",\n            \"quantity_on_shelf\": 15,\n            \"quantity_in_order\": 10,\n            \"date\": \"2024-11-22T03:02:46.913Z\"\n        },\n        {\n            \"id\": 4,\n            \"plu\": \"325125\",\n            \"name\": null,\n            \"shop_id\": 1,\n            \"action\": \"update_inventory\",\n            \"quantity_on_shelf\": 15,\n            \"quantity_in_order\": 10,\n            \"date\": \"2024-11-22T02:59:42.355Z\"\n        },\n        {\n            \"id\": 2,\n            \"plu\": \"325125\",\n            \"name\": null,\n            \"shop_id\": 1,\n            \"action\": \"create_inventory\",\n            \"quantity_on_shelf\": 10,\n            \"quantity_in_order\": 5,\n            \"date\": \"2024-11-22T02:22:36.634Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "history-by-shop-id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/history-by-shop?shop_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"history-by-shop"
+							],
+							"query": [
+								{
+									"key": "shop_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "history-by-shop-id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:4000/api/history-by-shop/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "184"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b8-5F+BA6xLEs5iLprEQsor/dxsa3k\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 02:59:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"count\": 1,\n        \"rows\": [\n            {\n                \"id\": 2,\n                \"plu\": \"325125\",\n                \"name\": null,\n                \"shop_id\": 1,\n                \"action\": \"create_inventory\",\n                \"quantity_on_shelf\": 10,\n                \"quantity_in_order\": 5,\n                \"date\": \"2024-11-22T02:22:36.634Z\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "history-by-plu",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4000/history-by-plu"
+					},
+					"response": [
+						{
+							"name": "history-by-shop Copy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/history-by-plu?plu=325125",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"history-by-plu"
+									],
+									"query": [
+										{
+											"key": "plu",
+											"value": "325125"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "193"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c1-c5FdOKv6+r/X9sGhCua0YxNh15I\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 02:17:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"count\": 1,\n        \"rows\": [\n            {\n                \"id\": 1,\n                \"plu\": \"325125\",\n                \"name\": \"test2\",\n                \"shop_id\": null,\n                \"action\": \"create_product\",\n                \"quantity_on_shelf\": null,\n                \"quantity_in_order\": null,\n                \"date\": \"2024-11-22T02:17:03.869Z\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "history-by-date",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/history-by-date?start_date=2024-11-20&end_date=2024-11-25",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"history-by-date"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2024-11-20"
+								},
+								{
+									"key": "end_date",
+									"value": "2024-11-25"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "history-by-plu Copy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/history-by-date?start_date=2024-11-20&end_date=2024-11-25",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"history-by-date"
+									],
+									"query": [
+										{
+											"key": "start_date",
+											"value": "2024-11-20"
+										},
+										{
+											"key": "end_date",
+											"value": "2024-11-25"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "512"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"200-6KnT8i3MwZLwke4GJVgYTOwpGJM\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 02:42:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"count\": 3,\n        \"rows\": [\n            {\n                \"id\": 3,\n                \"plu\": \"325125\",\n                \"name\": \"test2\",\n                \"shop_id\": null,\n                \"action\": \"create_product\",\n                \"quantity_on_shelf\": null,\n                \"quantity_in_order\": null,\n                \"date\": \"2024-11-22T02:26:59.133Z\"\n            },\n            {\n                \"id\": 2,\n                \"plu\": \"325125\",\n                \"name\": null,\n                \"shop_id\": 1,\n                \"action\": \"create_inventory\",\n                \"quantity_on_shelf\": 10,\n                \"quantity_in_order\": 5,\n                \"date\": \"2024-11-22T02:22:36.634Z\"\n            },\n            {\n                \"id\": 1,\n                \"plu\": \"325125\",\n                \"name\": \"test2\",\n                \"shop_id\": null,\n                \"action\": \"create_product\",\n                \"quantity_on_shelf\": null,\n                \"quantity_in_order\": null,\n                \"date\": \"2024-11-22T02:17:03.869Z\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "history-by-action",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4000/history-by-action"
+					},
+					"response": [
+						{
+							"name": "history-by-action",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/history-by-action?action=create_product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"history-by-action"
+									],
+									"query": [
+										{
+											"key": "action",
+											"value": "create_product"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "357"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"165-KHjjwXbZ1lLGIziBr6dbhEB4nVk\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 02:27:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"count\": 2,\n        \"rows\": [\n            {\n                \"id\": 3,\n                \"plu\": \"325125\",\n                \"name\": \"test2\",\n                \"shop_id\": null,\n                \"action\": \"create_product\",\n                \"quantity_on_shelf\": null,\n                \"quantity_in_order\": null,\n                \"date\": \"2024-11-22T02:26:59.133Z\"\n            },\n            {\n                \"id\": 1,\n                \"plu\": \"325125\",\n                \"name\": \"test2\",\n                \"shop_id\": null,\n                \"action\": \"create_product\",\n                \"quantity_on_shelf\": null,\n                \"quantity_in_order\": null,\n                \"date\": \"2024-11-22T02:17:03.869Z\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "history-by-page",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/history-by-page?page=1&limit=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"history-by-page"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "history-by-page",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/history-by-page?page=1&limit=5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"history-by-page"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "539"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21b-PnPMFLw7kiqCkon2fIquHTqcKjE\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 02:58:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"currentPage\": 1,\n    \"totalPages\": 1,\n    \"totalCount\": 3,\n    \"data\": [\n        {\n            \"id\": 3,\n            \"plu\": \"325125\",\n            \"name\": \"test2\",\n            \"shop_id\": null,\n            \"action\": \"create_product\",\n            \"quantity_on_shelf\": null,\n            \"quantity_in_order\": null,\n            \"date\": \"2024-11-22T02:26:59.133Z\"\n        },\n        {\n            \"id\": 2,\n            \"plu\": \"325125\",\n            \"name\": null,\n            \"shop_id\": 1,\n            \"action\": \"create_inventory\",\n            \"quantity_on_shelf\": 10,\n            \"quantity_in_order\": 5,\n            \"date\": \"2024-11-22T02:22:36.634Z\"\n        },\n        {\n            \"id\": 1,\n            \"plu\": \"325125\",\n            \"name\": \"test2\",\n            \"shop_id\": null,\n            \"action\": \"create_product\",\n            \"quantity_on_shelf\": null,\n            \"quantity_in_order\": null,\n            \"date\": \"2024-11-22T02:17:03.869Z\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "get users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/user"
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:5000/user"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "983"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3d7-TlhO7Fa2o0B8txg2vnOjsLsWtWo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 23 Nov 2024 06:47:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 10,\n    \"users\": [\n        {\n            \"id\": 2,\n            \"firstName\": \"Trisha\",\n            \"lastName\": \"Hermann\",\n            \"age\": 50,\n            \"gender\": \"female\",\n            \"hasProblems\": false\n        },\n        {\n            \"id\": 4,\n            \"firstName\": \"Raina\",\n            \"lastName\": \"Swaniawski\",\n            \"age\": 68,\n            \"gender\": \"male\",\n            \"hasProblems\": false\n        },\n        {\n            \"id\": 5,\n            \"firstName\": \"Tristian\",\n            \"lastName\": \"Homenick\",\n            \"age\": 45,\n            \"gender\": \"female\",\n            \"hasProblems\": false\n        },\n        {\n            \"id\": 7,\n            \"firstName\": \"Caitlyn\",\n            \"lastName\": \"Kris\",\n            \"age\": 72,\n            \"gender\": \"female\",\n            \"hasProblems\": false\n        },\n        {\n            \"id\": 9,\n            \"firstName\": \"Zelda\",\n            \"lastName\": \"Gibson\",\n            \"age\": 68,\n            \"gender\": \"female\",\n            \"hasProblems\": false\n        },\n        {\n            \"id\": 1,\n            \"firstName\": \"Khalil\",\n            \"lastName\": \"Hahn\",\n            \"age\": 42,\n            \"gender\": \"male\",\n            \"hasProblems\": false\n        },\n        {\n            \"id\": 3,\n            \"firstName\": \"Jed\",\n            \"lastName\": \"Hills\",\n            \"age\": 34,\n            \"gender\": \"male\",\n            \"hasProblems\": false\n        },\n        {\n            \"id\": 6,\n            \"firstName\": \"Aileen\",\n            \"lastName\": \"Lind\",\n            \"age\": 25,\n            \"gender\": \"female\",\n            \"hasProblems\": false\n        },\n        {\n            \"id\": 8,\n            \"firstName\": \"Micah\",\n            \"lastName\": \"Hegmann\",\n            \"age\": 22,\n            \"gender\": \"female\",\n            \"hasProblems\": false\n        },\n        {\n            \"id\": 10,\n            \"firstName\": \"Lourdes\",\n            \"lastName\": \"Braun\",\n            \"age\": 64,\n            \"gender\": \"male\",\n            \"hasProblems\": false\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"alex\",\r\n    \"lastName\":\"morgan\",\r\n    \"age\":24,\r\n    \"gender\":\"male\",\r\n    \"hasProblems\":false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/user"
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\":\"alex\",\r\n    \"lastName\":\"morgan\",\r\n    \"age\":24,\r\n    \"gender\":\"male\",\r\n    \"hasProblems\":false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5000/user"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "92"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5c-YdUzAjdgyiToFHV1xrM/XMWyVn4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 23 Nov 2024 05:07:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"firstName\": \"alex\",\n    \"lastName\": \"morgan\",\n    \"age\": 24,\n    \"gender\": \"male\",\n    \"hasProblems\": false,\n    \"id\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "update-has-problems",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "http://localhost:5000/user/update-problems"
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": "http://localhost:5000/user/update-problems"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "102"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"66-1owSfgyVAryEk7oEbLJIQw8Pq58\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 23 Nov 2024 06:47:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 5,\n    \"message\": \"Successfully updated the 'hasProblems' flag. 5 users had the flag set to true.\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}
