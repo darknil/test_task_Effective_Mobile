@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "migrate": "npm run migrate --prefix ./products_history_service && npm run migrate --prefix ./remaining_goods_service && npm run migrate --prefix ./user_service",
-    "install": "npm i --prefix ./products_history_service && npm i --prefix ./remaining_goods_service",
+    "install": "npm i --prefix ./products_history_service && npm i --prefix ./remaining_goods_service && npm i --prefix ./user_service",
     "start-history": "npm run migrate --prefix ./products_history_service  && node ./products_history_service/server.js",
     "start-products": "npm run dev --prefix ./remaining_goods_service",
     "build": "npm run build --prefix ./remaining_goods_service"
